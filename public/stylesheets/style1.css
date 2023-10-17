@@ -1,0 +1,338 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100%;
+    width: 100%;
+position: relative;
+display: flex;
+/* background-color: #DFDFDC; */
+background: linear-gradient(to bottom, #00A783 0%, #00A783 20%, #DFDFDC 20%, #DFDFDC 100%);
+}
+#left{
+    position: relative;
+    height: 95%;
+    width: 30%;
+    top: 2.5%;
+    left: 2.5%;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+#profile{
+    height: 100%;
+    width: 100%;
+    background-color: #F0F2F5;
+    position: absolute;
+    z-index: 999;
+    left: -100%;
+}
+#navP{
+    height: 18.5%;
+    width: 100%;
+    background-color: #008069;
+    display: flex;
+}
+#navP i{
+    color: #fff;
+    margin-top: 80px;
+    font-size: 30px;
+    margin-left: 25px;
+    cursor: pointer;
+}
+#navP h5{
+    font-size: 22px;
+    color: #fff;
+    font-weight: 200;
+    margin-top: 85px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+}
+#image{
+    height: 35%;
+    width: 100%;
+    background-color: #F0F2F5;
+    cursor: pointer;
+}
+#cricle{
+    height: 27vh;
+    width: 27vh;
+    background-color: #008069;
+    border-radius: 50%;
+    position: relative;
+    top: 10%;
+    left: 30%;
+}
+#cricle img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    object-fit: cover;
+    border-radius: 50%
+}
+#name{
+    height: 13%;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 5px #ffffffc7;
+
+}
+.top{
+    height: 50%;
+    width: 100%;
+}
+.top h6{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: #008069;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+.bottom{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom h5{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 200;
+    color: #000;
+    padding-left: 40px;
+    padding-top: 15px;
+}
+.bottom i{
+    padding-right: 40px;
+    font-size: 20px;
+    color: #8696A0;
+    padding-top: 15px;
+}
+#gap{
+    height: 10%;
+    width: 100%;
+    background-color: #F0F2F5;
+}
+#gap p{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #8696A0;
+    font-weight: 100;
+    font-size: 15px;
+    padding-left: 40px;
+    padding-top: 10px;
+}
+#about{
+    height: 13%;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 5px #ffffffc7;
+}
+#nav{
+    height: 10%;
+    width: 100%;
+    background-color: #F0F2F5;
+    display: flex;
+    border-right: 1px solid grey;
+}
+#img{
+    height: 100%;
+    width: 20%;
+}
+
+#img img{
+    height: 6vh;
+    width: 6vh;
+    border-radius: 50%;
+    margin-left: 15px;
+    object-fit: cover;
+    margin-top: 10px;
+    cursor: pointer;
+}
+#icons{
+    height: 100%;
+    width: 80%;
+}
+#icons i{
+    font-size: 26px;
+    margin-left: 20px;
+    position: relative;
+    left: 42%;
+    top: 30%;
+    cursor: pointer;
+}
+#search{
+    position: relative;
+    height: 7%;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    background-color: #fff;
+}
+#search input{
+    padding: 6px 65px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #F0F2F5;
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 6px;
+}
+#send{
+    margin-left: 15px;
+    font-size: 20px;
+}
+#searched{
+    height: 150%;
+    width: 100%;
+    position: relative;
+    top: 12%;
+}
+.searchedusers{
+    height: 100%;
+    width: 98%;
+    border-top: 2px solid rgba(197, 194, 194, 0.658);
+    border-bottom: 1px solid rgba(197, 194, 194, 0.658);
+    background-color: #F0F2F5;
+    font-size: 20px;
+    display: flex;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.searchedusers img{
+    border-radius: 50%;
+    height: 90%;
+    width: 13%;
+    margin-left: 10px;
+    margin-top: 2px;
+    object-fit: cover;
+   background-size: cover;
+}
+.searchedusers h5{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+.searchedusers i{
+    font-size: 25px;
+    padding-top: 20px;
+    margin-left: 240px;
+}
+.searchedusers:hover{
+    background-color: #bebfc1ce;
+}
+#chatUser{
+    height: 83%;
+    width: 100%;
+}
+.chats{
+    cursor: pointer;
+    height: 12%;
+    width: 100%;
+    display: flex;  
+    border-bottom: 1px solid rgb(193, 185, 185);
+    /* background-color: #000; */
+}
+#cri{
+   height:8vh;
+   width: 8vh;
+   display: flex;
+   background-color: #8696A0;
+   position: relative;
+   top: 9%;
+   left: 2%;
+   border-radius: 50%;
+}
+#cri img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center;
+}
+.chats h3{
+    font-size: 25px;
+    margin-top: 10px;
+    margin-left: 25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.chats i{
+  position: relative;
+  top: 30%;
+  left: 57%;
+  font-size: 22px;
+}
+#right{
+    position: relative;
+    height: 95%;
+    width: 65%;
+    left: 2.5%;
+    top: 2.5%;
+    /* background-color: #F0F2F5; */
+    background: url(https://i.pinimg.com/564x/7c/29/29/7c2929ff41f2406df117969a5bf46bf7.jpg);
+}
+#chat{
+    height: 100%;
+    width: 100%;
+    background: url(https://i.pinimg.com/564x/2b/a0/ac/2ba0aca799f0ce7d33cb5cf983a99baf.jpg);
+}
+#navR{
+    height: 10%;
+    width: 100%;
+    background-color: #F0F2F5;
+    display: flex;
+    border-right: 1px solid grey;
+}
+#navR img{
+    height: 8vh;
+    width: 8vh;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 5px;
+    object-fit: cover;
+}
+#navR h4{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: 100;
+}
+#navR i{
+    position: relative;
+    left: 70%;
+    font-size: 25px;
+    margin-left: 25px;
+    margin-top: 20px;
+}
+#writechat{
+    height: 8%;
+    width: 100%;
+    position: relative;
+    background-color: #F0F2F5;
+    top: 82%;
+    justify-content: space-evenly;
+    display: flex;
+}
+#textarea{
+    width: 80%;
+    height: 70%;
+    outline: none;
+    margin-top: 10px;
+    resize: none;
+    font-size: 22px;
+    text-align: left;
+    border: none;
+    border-radius: 10px;
+}
+#writechat i{
+    font-size: 30px;
+    margin-top: 10px;
+    font-weight: 50;
+    color: grey;
+}

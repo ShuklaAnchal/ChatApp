@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style1.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">
+            <div id="profile">
+                <div id="navP">
+                    <i id="arrow" class="ri-arrow-left-line"></i>
+                    <h5>Profile</h5>
+                </div>
+                <div id="image">
+                    <div id="cricle">
+                        <img src="<%= user.pick %>" alt="">
+                    </div>
+                </div>
+                <div id="name">
+                    <div class="top">
+                        <h6>Your name</h6>
+                    </div>
+                    <div class="bottom">
+                        <h5>
+                            <%= user.username %>
+                        </h5> <i class="ri-pencil-fill"></i>
+                    </div>
+                </div>
+                <div id="gap">
+                    <p>This is not your username or pin. This name will be visible to your WhatsApp contacts.</p>
+                </div>
+                <div id="about">
+                    <div class="top">
+                        <h6>About</h6>
+                    </div>
+                    <div class="bottom">
+                        <h5>
+                            <%= user.username %>
+                        </h5> <i class="ri-pencil-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="nav">
+                <div id="img">
+                    <img id="slide" src="<%= user.pick %>" alt="">
+                </div>
+                <div id="icons">
+                    <!-- <h2><%= user.username %></h2> -->
+                    <i class="ri-group-line"></i>
+                    <i class="ri-donut-chart-line"></i>
+                    <i class="ri-discuss-line"></i>
+                    <i class="ri-more-2-fill"></i>
+                </div>
+            </div>
+            <div id="search">
+                <!-- <i class="ri-search-line"></i> -->
+                <input type="text" id="searchUser" placeholder="Search or start new chat">
+                <i id="send" class="ri-bar-chart-horizontal-line"></i>
+                <div id="searched">
+                    <!-- <div class="searchedusers">
+                        <img src="https://images.unsplash.com/photo-1690743300187-51d68146adf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                            <h5>Anchal</h5>
+                            <i class="ri-arrow-down-s-line"></i>
+                    </div>         -->
+                </div>
+            </div>
+            <div id="chatUser">
+                <!-- <div class="chats" >
+                    <div id="cri">
+                        <img src="https://images.unsplash.com/photo-1690743300187-51d68146adf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="">
+                    </div>
+                    <h3>Anchal</h3>
+                    <i class="ri-arrow-down-s-line"></i>
+                </div> -->
+            </div>
+        </div>
+        <div id="right">
+            <!-- <div id="chat">
+                <div id="navR">
+                   <img src="https://plus.unsplash.com/premium_photo-1688114984765-308599ec1e13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="">
+                   <h4>Anchal</h4>
+                   <i class="ri-search-line"></i> <i class="ri-more-2-fill"></i>
+                </div>
+                <div id="writechat">
+                    <i class="ri-emotion-line"></i>
+                    <i class="ri-attachment-2"></i>
+                    <textarea name="textarea" id="textarea"  placeholder="    Type a message"></textarea>
+                    <i class="ri-mic-fill"></i>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+        integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var username = '<%= user.username %>'
+        var socket = io();
+        socket.emit('newUserConnected', {
+            user: username
+        })
+      
+        var oppositeUser
+
+        socket.on('tomsg', tomsg => {
+            console.log(tomsg)
+        })
+
+
+        document.querySelector("#searchUser").addEventListener('input', function (dets) {
+            var result = dets.target.value;
+            axios.post('/searchUser', { result })
+                .then(function (resultent) {
+                    console.log(resultent.data)
+                    var clutter = ""
+                    resultent.data.users.forEach(element => {
+                        // clutter += `<h1>${element.username}</h1>`
+                        clutter += `<div
+                 onclick="chatusers('${element.username}', '${element.pick}')"  
+                class="searchedusers">
+                    <img src="${element.pick}" alt="">
+                    <h5>${element.username}</h5>
+                            <i class="ri-arrow-down-s-line"></i>
+                            </div>`
+                    });
+                    document.querySelector("#searched").innerHTML = clutter;
+                }).catch(err => {
+                    console.log(err)
+                })
+        })
+
+    </script>
+    <script src="/javascripts/script.js"></script>
+</body>
+
+</html>
